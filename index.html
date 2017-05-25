@@ -8,7 +8,30 @@
 	</body>
 </html>
 <script type="text/javascript">
-	//校验文件类型
+	//校验文件类型  $/:结束符  /^:开始符    $/i i:不区分大小写
 	var reg=/^.*(.jpg|.png|.gif|.ps|.jpeg|.webp)$/i;
 	console.log(reg.test("_downloads/杜春风(1).jpg"))
+	//手机号校验  \d表示数字  \d{9}:意思是九个数字
+	var phoneReg=/^1[34578]\d{9}$/;
+	//邮箱正则
+	var emailReg=/^[\w.\-]+@(?:[a-z0-9]+(?:-[a-z0-9]+)*\.)+[a-z]{2,3}$/
+	//只要包含he就符合要求,,,,相当于indexof("he")
+	//如果要只是he或HE,不能有其它字符,则可使用^和$ 使用后 she 就匹配不到了
+	var re = /he/;
+	str = "Certainly!He loves her!";  
+	console.log(re.test(str));//true,只要包含he(HE)就符合,如果要只是he或HE,不能有其它字符,则可使用^和$  
+	re = /^he/i;//脱字符(^)代表字符开始位置  
+	console.log(re.test(str));//false,因为he不在str最开始  
+	str = "He is a good boy!";  
+	console.log(re.test(str));//true,He是字符开始位置,还需要使用$  
+	re = /^he$/i;//$表示字符结束位置  
+	console.log(re.test(str));//false
+	
+	re = /\s/;// \s匹配任何空白字符，包括空格、制表符、换页符等等  
+	
+	re=/^[a-z]/i;//[]匹配指定范围内的任意字符,这里将匹配英文字母,不区分大小写  
+	str="variableName";//变量名必须以字母开头  
+	console.log(re.test(str));//true 
+	re1=/^[a-z]{3}/i;//匹配是哪个任意字符
+console.log(re1.test("abc"))	
 </script>
